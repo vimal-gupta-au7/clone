@@ -1,0 +1,46 @@
+<% layout('layout') -%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="<%= product.image %>">
+        </div>
+        <div class="col-md-4">
+            <p>
+                <%= product.name %>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>
+                <%= product.name %>
+            </h3>
+            <h1>
+                <%= product.price %>
+            </h1>
+        </div>
+    </div>
+    <div class="row comments-area">
+        <div class="col-sm-12">
+            <h3>Comments</h3>
+        </div>
+        <div class="col-sm-12">
+            <form method="POST">
+                <div class="form-group">
+                    <textarea name="comment" placeholder="Enter your comment here" class="form-control" id="comments"
+                        rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+    </div>
+    <div class="row comments-area comment-list">
+        <% for (var i = 0; i < comments.length; i++) { %>
+        <div id="<%= comments[i]._id %>" class="col-md-12 col-md-offset-0 comment-item">
+            <div class="forumText forumMax">
+                <p><%= comments[i].text %></p>
+            </div>
+        </div>
+        <hr>
+        <% } %>
+    </div>
+</div>
